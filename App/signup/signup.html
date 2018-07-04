@@ -1,0 +1,20 @@
+
+
+<div class = "row">
+  <!-- The reason to include two different is to have left side with why to sign up and then controllers etc. -->
+  <!--Bootstrapt divided everything into 6, so we take half of th epage here -->
+    <div class = "col-sm-6 col-sm-offset-3">
+        <div class = "row" >
+            <strong>Email Address: </strong>
+      <!-- node type of newUser.email keep consistent with our user!!!-->
+            <input type="text" ng-model="newUser.email" class="form-control">
+        </div>
+
+        <div class = "row">
+            <strong>Password: </strong>
+            <input type="password" ng-model = "newUser.password" class = "form-control">
+        </div>
+    <!-- createUser() angular triggers it automatically -->
+        <button ng-click = "createUser()"> Submit </button>
+    </div>
+</div>

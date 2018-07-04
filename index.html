@@ -1,0 +1,52 @@
+
+<html ng-app = "MainApp">
+  <head>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="App/css/main.css"/>
+  </head>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+      <div> <input type="text" ng-model="login.email"> <input type="password" ng-model="login.password">
+        <!--signUp was set as a state, so we define if user has no login -->
+        <button>Login</button> <a ui-sref="signUp">Create An Account</a>
+      </div>
+
+    </div>
+
+  </nav>
+
+    <body>
+        <h1>UBC Innovation Network</h1>
+        <p>Work in progress, coming out soon.</p>
+      <!-- After creating signup.html go here -->
+        <div ui-view></div>
+    </body>
+
+<!-- Comment: angular set up -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"> </script> -->
+<!-- this top part was an alternative for angular but somehow doesnt work so below is solution
+we are going to instead do an npm download and access angular through node_modules folder as follows-->
+
+<!-- Comment: Angular Solution to Uncaught Error in Console -->
+<!-- after this we now have to make sure we always get something back when address
+node_modules not only when app, SEE COMMENT, "fix source angular 2" on server -->
+<!--<script src="node_modules/angular/angular.js"> </script> -->
+
+<!--test again if normal link works -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.js"> </script> -->
+
+<!-- maybe final solution!! Used to insange ngRoute, and added to app in Comment: App module Route in app.js-->
+<!-- inally think it works! Comment: FINAL MAYBE .. follow up on server comment :CONT ANGULAR-->
+<script src="node_modules/angular/angular.js"></script>
+
+<!-- since its a single application we need to ad d a ui.router -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.18/angular-ui-router.js"></script>
+
+<!-- Comment: A -->
+<script src= "App/app.js"></script>
+
+<!-- Comment: after ui-view ... let application know this exists -->
+<script src="App/signup/signup-controller.js"></script>
+</html>
