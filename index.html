@@ -1,28 +1,28 @@
 
 <html ng-app = "MainApp">
-  <head>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="App/css/main.css"/>
-  </head>
+    <head>
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+      <link rel="stylesheet" href="App/css/main.css"/>
+    </head>
 
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
 
-      <div> <input type="text" ng-model="login.email"> <input type="password" ng-model="login.password">
+        <div> <input type="text" ng-model="login.email"> <input type="password" ng-model="login.password">
         <!--signUp was set as a state, so we define if user has no login -->
-        <button>Login</button> <a ui-sref="signUp">Create An Account</a>
+          <button>Login</button> <a ui-sref="signUp">Create An Account</a>
+        </div>
+
       </div>
 
-    </div>
+    </nav>
 
-  </nav>
-
-    <body>
-        <h1>UBC Innovation Network</h1>
-        <p>Work in progress, coming out soon.</p>
+      <body>
+          <h1>UBC Innovation Network</h1>
+          <p>Work in progress, coming out soon.</p>
       <!-- After creating signup.html go here -->
-        <div ui-view></div>
-    </body>
+          <div ui-view></div>
+      </body>
 
 <!-- Comment: angular set up -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"> </script> -->

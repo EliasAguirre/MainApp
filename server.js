@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 
 //make our application an instance of express
 var app = express();
+var authenticationController = require('./Server/controllers/authentication-controller')
 
 //based on mongod file, port number given there by default, at this point we need to create our datasets
 //aim to have both users in both data sets to have an array of users, no new table like in mySQL
@@ -24,6 +25,9 @@ var app = express();
 //switched to db MainApp
 //mongo in a window and mongod in anotherone
 mongoose.connect('mongodb://localhost:27017/MainApp');
+
+//add this once wee have authenticationcontroller ready
+app.use(bodyParser.json());
 
 //Comment: extra add
 //This is the file we need to send anytime a server is looking to find a file named app
@@ -44,6 +48,9 @@ app.use('/node_modules', express.static(__dirname + "/node_modules"));
 app.get('/', function(req, res){
   res.sendfile('index.html');
 });
+
+//authentication, path created in signup-controller
+app.post('/api/user/signup', authenticationController.signup);
 
 //make sure app is running, server is up, and give it local host, function is just callback function
 app.listen('3000', function(){

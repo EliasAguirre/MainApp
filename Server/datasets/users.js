@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 //first parameter is users
 //2nd pass object traits
 //add data cause first is creating profile then is image upload
-module.export = mongoose.model('User', {
+module.exports = mongoose.model('User', {
   email: String,
   //not secure at all, not deploy this but for practical purposes
   //create for the bantz
