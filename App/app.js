@@ -6,7 +6,7 @@
   //here we name application
   //application and then list of dependencies to passed in, to avoid passing multiple
   //things on our node side.. i.e UI router as a declaration of a dependency in string form
-  angular.module('MainApp', ['ui.router'])
+  angular.module('MainApp', ['ui.router', 'ngFileUpload'])
   //add state provider since its a single page application, to tell it where it is rn
       .config(function($stateProvider){
 
@@ -18,9 +18,18 @@
 
           })
 
+          .state('editProfile', {
+            url: "/edit-profile",
+            templateUrl: "App/profile/edit-profile-view.html",
+            controller: "EditProfileController"
+
+          })
+
       })
 
 }());
+
+
 
 //Comment:  App module Route - connected to index.html under Comment: Final Solution d
 //angular.module('app', ['ngRoute']);

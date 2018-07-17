@@ -24,8 +24,13 @@ module.exports.login = function(req, res){
         }
         //only 1 result
         if(results && results.length === 1){
+          //store user data, once localStorage is up
+          var userData = results[0];
+
           //if info found store that info in local storage
-          res.json(req.body.email);
+          res.json({email: req.body.email,
+                    _id: userData._id
+          });
         }
     })
 }

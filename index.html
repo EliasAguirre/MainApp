@@ -8,18 +8,18 @@
     <nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavigationController">
       <div class="container">
 
-        <div> <input type="text" ng-model="login.email"> <input type="password" ng-model="login.password">
+        <div ng-show="!loggedIn"> <input type="text" ng-model="login.email"> <input type="password" ng-model="login.password">
         <!--signUp was set as a state, so we define if user has no login -->
           <button ng-click = "logUserIn()">Login</button> <a ui-sref="signUp">Create An Account</a>
         </div>
+        <div ng-show="loggedIn">  <a ui-sref="editProfile"> Edit Profile </a>  </div>
 
       </div>
 
     </nav>
 
       <body>
-          <h1>UBC Innovation Network</h1>
-          <p>Work in progress, coming out soon.</p>
+
       <!-- After creating signup.html go here -->
           <div ui-view></div>
       </body>
@@ -52,5 +52,13 @@ node_modules not only when app, SEE COMMENT, "fix source angular 2" on server --
 
 <!-- After login, navigation for further profiling -->
 <script src="App/navigation/navigation-controller.js"></script>
+
+<script src="App/profile/edit-profile-controller.js"></script>
+
+<!-- Libraries -->
+<!-- Right after this go to app.js and declare as dependency on main module, after ui.router -->
+<script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+<script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
+<script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
 
 </html>
