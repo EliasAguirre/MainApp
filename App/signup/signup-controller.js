@@ -34,7 +34,7 @@
             console.log($scope.newUser);
             //$http.post('api/user/signup', $scope.newUser).success(function(response)
             $http.post('api/user/signup', $scope.newUser).then(function successCallback(response){
-                
+
 
             }, function errorCallback(response){
                 console.log(error);

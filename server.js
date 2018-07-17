@@ -27,6 +27,7 @@ var authenticationController = require('./Server/controllers/authentication-cont
 mongoose.connect('mongodb://localhost:27017/MainApp');
 
 //add this once wee have authenticationcontroller ready
+//DOESNT SEEM TO WORK!
 app.use(bodyParser.json());
 
 //Comment: extra add
@@ -51,6 +52,8 @@ app.get('/', function(req, res){
 
 //authentication, path created in signup-controller
 app.post('/api/user/signup', authenticationController.signup);
+
+app.post('/api/user/login', authenticationController.login);
 
 //make sure app is running, server is up, and give it local host, function is just callback function
 app.listen('3000', function(){
