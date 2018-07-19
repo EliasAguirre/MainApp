@@ -1,7 +1,11 @@
 <div class="col-sm-8 col-sm-offset-2">
 
-<div class="row">Image Upload Goes Here </div>
+<!--image select button works and drops down file menu -->
+<!--image will automatically upload when the file selected-->
+<div class="row"><div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+    ngf-accept="'image/*'">Select</div> </div>
 
+<!--separate end point on blur for username and bio -->
 <div class="row">
   <input class = "form-control" ng-model="user.username">
 </div>

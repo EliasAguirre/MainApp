@@ -5,12 +5,17 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
 
 
 
 //make our application an instance of express
 var app = express();
-var authenticationController = require('./Server/controllers/authentication-controller')
+var authenticationController = require('./Server/controllers/authentication-controller');
+
+//controller dependency
+var profileController = require('./Server/controllers/profile-controller');
 
 //based on mongod file, port number given there by default, at this point we need to create our datasets
 //aim to have both users in both data sets to have an array of users, no new table like in mySQL
@@ -29,6 +34,9 @@ mongoose.connect('mongodb://localhost:27017/MainApp');
 //add this once wee have authenticationcontroller ready
 //DOESNT SEEM TO WORK!
 app.use(bodyParser.json());
+
+//Include to use multiparty multipartMiddleware
+app.use(multipartMiddleware);
 
 //Comment: extra add
 //This is the file we need to send anytime a server is looking to find a file named app
@@ -54,6 +62,11 @@ app.get('/', function(req, res){
 app.post('/api/user/signup', authenticationController.signup);
 
 app.post('/api/user/login', authenticationController.login);
+
+//COMMENT: SERVER PROFILE ENDPOINT- USING CONNECT MULTI PARTY
+//multipartMiddleware handles the data, transfering and parsing into json for us
+//declare controllers as dependencies
+app.post('/api/profile/editPhoto', multipartMiddleware, profileController.updatePhoto);
 
 //make sure app is running, server is up, and give it local host, function is just callback function
 app.listen('3000', function(){
