@@ -17,7 +17,7 @@ module.exports.updatePhoto = function(req, res){
     //starting point for uploads folder
     var tempPath = file.path;
     //create unique date to identify unique path to uploads
-    var uploadDate = new Date().toISOString;
+    var uploadDate = new Date();
 
     //clean up Date
     // uploadDate = uploadDate.replace("." , "");
@@ -25,12 +25,23 @@ module.exports.updatePhoto = function(req, res){
     // uploadDate = uploadDate.replace(":" , "");
 
     var targetPath = path.join(__dirname, "../../uploads/" + userId + uploadDate + file.name);
+    var savePath = "/uploads/" + userId + uploadDate + file.name;
 
     fs.rename(tempPath, targetPath, function(err){
       if(err){
         console.log(err);
       } else{
-        console.log("file moved");
+        User.findById(userId, function(err, userData){
+          var user = userData;
+          user.image = savePath;
+          user.save(function(err){
+            if (err){
+              console.log("fail saved");
+            }else{
+              console.log("save successful");
+            }
+          })
+        })
       }
     })
-}
+}; 
