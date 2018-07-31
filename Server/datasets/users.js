@@ -12,8 +12,10 @@ module.exports = mongoose.model('User', {
   email: String,
   //not secure at all, not deploy this but for practical purposes
   //create for the bantz
+  username: String,
   password: String,
-  image: String
+  image: String,
+  bio: String
 });
 
 //at this points we have node set up, databae set up  , lets set up angular front end now

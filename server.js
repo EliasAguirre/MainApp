@@ -68,6 +68,12 @@ app.post('/api/user/login', authenticationController.login);
 //declare controllers as dependencies
 app.post('/api/profile/editPhoto', multipartMiddleware, profileController.updatePhoto);
 
+//Profile part 2, updateUsername
+app.post('/api/profile/updateUsername', profileController.updateUsername);
+
+//Profile part 3, updateBio
+app.post('/api/profile/updateBio', profileController.updateBio);
+
 //make sure app is running, server is up, and give it local host, function is just callback function
 app.listen('3000', function(){
   console.log("Server is Up! Local Host 3000");
