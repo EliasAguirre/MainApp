@@ -8,21 +8,27 @@
   //things on our node side.. i.e UI router as a declaration of a dependency in string form
   angular.module('MainApp', ['ui.router', 'ngFileUpload'])
   //add state provider since its a single page application, to tell it where it is rn
-      .config(function($stateProvider){
+      .config(function($stateProvider, $urlRouterProvider){
+
+        $urlRouterProvider.otherwise('/');
 
         $stateProvider
           .state('signUp', {
             url: "/signup",
             templateUrl: "App/signup/signup.html",
             controller: "SignupController"
-
           })
 
           .state('editProfile', {
             url: "/edit-profile",
             templateUrl: "App/profile/edit-profile-view.html",
             controller: "EditProfileController"
+          })
 
+          .state('main', {
+            url: "/",
+            templateUrl: "App/main/main.html",
+            controller: "MainController"
           })
 
       })
