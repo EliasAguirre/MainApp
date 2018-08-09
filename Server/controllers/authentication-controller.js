@@ -29,7 +29,9 @@ module.exports.login = function(req, res){
 
           //if info found store that info in local storage
           res.json({email: req.body.email,
-                    _id: userData._id
+                    _id: userData._id,
+                    username: userData.username,
+                    image: userData.image
           });
         }
     })
